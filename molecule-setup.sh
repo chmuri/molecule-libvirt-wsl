@@ -21,9 +21,16 @@ fi
 if [ -f "$HOME/.zshrc" ]; then
     add_lines_to_rc_file "$HOME/.zshrc"
 fi
+
+# Download and add HashiCorp GPG key for package verification
 wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+
+# Add HashiCorp repository to the package manager
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+
+# Update package manager
 sudo apt update
+
 # Install necessary packages using apt
 sudo apt -y install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils vagrant libvirt-dev virt-manager
 
