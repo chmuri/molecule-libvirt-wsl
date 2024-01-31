@@ -21,7 +21,9 @@ fi
 if [ -f "$HOME/.zshrc" ]; then
     add_lines_to_rc_file "$HOME/.zshrc"
 fi
-
+wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update
 # Install necessary packages using apt
 sudo apt -y install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils vagrant libvirt-dev virt-manager
 
