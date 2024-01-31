@@ -10,4 +10,4 @@ To ensure proper configuration, download and execute the configuration script:
 
 For Bash:
 ```bash
-curl -sSL https://raw.githubusercontent.com/your-username/molecule-libvirt-wsl/main/molecule-setup.sh | sudo bash
+curl -sSL https://raw.githubusercontent.com/chmuri/molecule-libvirt-wsl/main/molecule-setup.sh | sudo bash
