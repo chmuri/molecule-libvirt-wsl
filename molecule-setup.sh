@@ -21,7 +21,7 @@ fi
 if [ -f "$HOME/.zshrc" ]; then
     add_lines_to_rc_file "$HOME/.zshrc"
 fi
-
+rm -f /usr/share/keyrings/hashicorp-archive-keyring.gpg
 # Download and add HashiCorp GPG key for package verification
 wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
 
