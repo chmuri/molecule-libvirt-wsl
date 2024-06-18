@@ -1,5 +1,5 @@
 #!/bin/bash
-
+ 
 # Function to add lines to a specified RC file
 add_lines_to_rc_file() {
     rc_file="$1"
